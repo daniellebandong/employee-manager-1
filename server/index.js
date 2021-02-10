@@ -27,12 +27,10 @@ const PORT =  process.env.PORT || 5000
 //Middleware Serving Static Pages from client directory
 // second parameter is an configuration object of how we want
 // the static file server to run.
-app.use(express.static(path.join(__dirname, "../client"), {
-    dotfiles: "ignore",
-    extensions: ["html, htm"],
-  })
+app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 'htm']})
 );
 
+ 
  // Routing Middleware.  
  // login route.
  app.post('/login', (req, res)=>{

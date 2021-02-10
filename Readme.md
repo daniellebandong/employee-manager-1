@@ -1,7 +1,8 @@
 # Employee Manager Login
 
 ### Setting Up A Basic User Authentication System.
-Were going to setup a basic user login form for the employee manager.
+Were going to setup a basic user login form to the dashboard.
+Restrict access to the dashboard.
 
 
 ### Read files with Node.js
