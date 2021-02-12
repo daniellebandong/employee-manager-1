@@ -1,12 +1,14 @@
-# Employee Manager Login
+# Employee Manager Day 4
 
-### Setting Up A Basic User Authentication System.
-Were going to setup a basic user login form to the dashboard.
-Restrict access to the dashboard.
+ 
+
+### /Login Post Route.
+Were going to create a service for the login process to handle the authentication of the users email and password using the users.json file.
 
 
-### Read files with Node.js
-There are a couple of ways to read files with node. The easiest way is to readFileSync(). This is a blocking script meaning that everything stops until the file is loaded.
+### Login Service
+The login service has to do a couple of tasks. It has to read the user.json file data and match the req.body.email and the req.body.password to the user data. If there are any errors we have to return an error object to the client. If the user email and password are valid credentials then we will redirect the user to the dashboard.html. At a later date we will convert the dashboard.html file into a server side ejs template and render the error messages server side and send the ejs template as the response.
+
 ```js
 const fs = require('fs');
  function getFileContents = (filePath)=> {
