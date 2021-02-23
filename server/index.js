@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  app.post('/login', (req, res)=>{
     const credentials = {
       email:req.body.email,
-      password:req.body.password;
+      password:req.body.password
     }
     const isValidUser = loginService(credentials)
     
