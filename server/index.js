@@ -40,16 +40,12 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  // Setup   app.use(express.urlencoded({extended:true}))
 
  app.post('/login', (req, res)=>{
+    const credentials = {
+      email:req.body.email,
+      password:req.body.password;
+    }
+    const isValidUser = loginService(credentials)
     
-  
-   // sending data back or files.
-   // res.send()---text or simple markup.
-   // res.json()---- send json back.
-   // res.sendFile---- a file.
-   // res.render-----template.
-
-   // pass the user email and password to a loginService.
-   // read the user file and then check the email....
    res.sendFile(path.join(__dirname, '../client/dashboard.html'))
  })
 
