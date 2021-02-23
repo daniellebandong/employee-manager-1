@@ -7,6 +7,8 @@ const express = require('express');
 const path = require('path')
 const cors = require('cors')
 
+const loginService = require('./services/loginService')
+
 // create an instance of express
 const app = express()
  
@@ -24,6 +26,8 @@ app.use(cors())
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
+ 
+
 
 //Middleware Serving Static Pages from client directory
 // second parameter is an configuration object of how we want
@@ -38,15 +42,18 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  // Access Form Data uses the POST method from the req body.
  // Tell Express that you want to access POST Request body
  // Setup   app.use(express.urlencoded({extended:true}))
-
  app.post('/login', (req, res)=>{
-    const credentials = {
-      email:req.body.email,
-      password:req.body.password
+   // POST name value pairs in body request
+   const credentials = {
+     email:req.body.email,
+     password:req.body.password
     }
-    const isValidUser = loginService(credentials)
     
-   res.sendFile(path.join(__dirname, '../client/dashboard.html'))
+    
+    const isValidUser = loginService.authenticate(credentials)
+   
+    res.end()
+   //res.sendFile(path.join(__dirname, '../client/dashboard.html'))
  })
 
  
