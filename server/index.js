@@ -6,6 +6,7 @@ const express = require('express');
 // import the path utils from Node.
 const path = require('path')
 const cors = require('cors')
+const cookSession = require('cookie-session')
 
 // Importing our Login Service Used With the POST Login Route
 const loginService = require('./services/loginService')
@@ -29,6 +30,12 @@ app.use(cors())
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
+ // Session Middleware
+ app.use(cookSession({
+   name:"session",
+   keys:['SDFLU9iw2308dlsfuwe2adfl', 'LDFA34gsdfgFOPW2323DA7FS2']
+ }))
+
  // Setup Template Engine
  app.set('view engine', 'ejs')
  app.set('views', path.join(__dirname, './views'))
@@ -47,12 +54,20 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  // Access Form Data uses the POST method from the req body.
  // Tell Express that you want to access POST Request body
  // Setup   app.use(express.urlencoded({extended:true}))
- 
+
+ // Basic Example of a Protected Route
+ app.get('/dashboard', (req, res)=>{
+          if(req.session.isValid){
+            res.render('dashboard')
+          }else{
+           res.redirect('/login')
+          }
+ })
 
  app.get('/login', (req, res)=>{
    // user template placed inside the views directory
    // res.render(view, data)   ejs.render(template, {data})
-   res.render('login', {passwordWarning:"", emailWarning:""})
+   res.render('login', {passwordWarning:"", emailWarning:"", email:"", password:""})
 
  })
  app.post('/login', (req, res)=>{
@@ -61,9 +76,28 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
       email:req.body.email,
       password:req.body.password
     }
+    // isValidUser returns {user:null, emailWarning, passwordWarning}
+    // isValudUser.user !=null...
     const isValidUser =  loginService.authenticate(credentials)
-    
-    res.end();
+   
+       //if the isValidUser has a user returned
+       if( isValidUser.user !== null){
+             // set a session value isValid
+             if(!req.session.isValid){
+                 req.session.isValid = true;
+             }
+             res.redirect('dashboard')
+       }
+
+       if(isValidUser.user === null){
+           // req.body.email, req.body.password
+           res.render('login', {
+             emailWarning:isValidUser.emailWarning, 
+             passwordWarning:isValidUser.passwordWarning,
+             email:req.body.email,
+             password:req.body.password
+            })
+       }
   })
     
  

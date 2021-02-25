@@ -23,12 +23,14 @@
         
         <div class="form-control">
           <label for="email">Account email address 
+            
             <span class="warning"><%- emailWarning %></span></label>
           <input
             id="email"
             type="text"
             name="email"
             placeholder="account@email.com"
+            value="<%-email%>"
           />
      
         </div>
@@ -42,6 +44,7 @@
             type="text"
             name="password"
             placeholder="account password "
+            value="<%- password %>"
           />
         </div>
 
