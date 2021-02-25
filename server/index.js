@@ -7,16 +7,11 @@ const express = require('express');
 const path = require('path')
 const cors = require('cors')
 
-<<<<<<< HEAD
 // Importing our Login Service Used With the POST Login Route
 const loginService = require('./services/loginService')
 
 
 
-=======
-const loginService = require('./services/loginService')
-
->>>>>>> b57d4ac6fc2a3ee17f60dd507fcb8966c5f287d0
 // create an instance of express
 const app = express()
  
@@ -34,15 +29,10 @@ app.use(cors())
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
-<<<<<<< HEAD
  // Setup Template Engine
  app.set('view engine', 'ejs')
  app.set('views', path.join(__dirname, './views'))
  
-=======
- 
-
->>>>>>> b57d4ac6fc2a3ee17f60dd507fcb8966c5f287d0
 
 //Middleware Serving Static Pages from client directory
 // second parameter is an configuration object of how we want
@@ -57,7 +47,7 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  // Access Form Data uses the POST method from the req body.
  // Tell Express that you want to access POST Request body
  // Setup   app.use(express.urlencoded({extended:true}))
-<<<<<<< HEAD
+ 
 
  app.get('/login', (req, res)=>{
    // user template placed inside the views directory
@@ -74,8 +64,9 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
     const isValidUser =  loginService.authenticate(credentials)
     
     res.end();
+  })
     
-=======
+ 
  app.post('/login', (req, res)=>{
    // POST name value pairs in body request
    const credentials = {
@@ -87,8 +78,7 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
     const isValidUser = loginService.authenticate(credentials)
    
     res.end()
->>>>>>> b57d4ac6fc2a3ee17f60dd507fcb8966c5f287d0
-   //res.sendFile(path.join(__dirname, '../client/dashboard.html'))
+ 
  })
 
  
