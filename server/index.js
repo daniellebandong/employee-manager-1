@@ -7,6 +7,11 @@ const express = require('express');
 const path = require('path')
 const cors = require('cors')
 
+// Importing our Login Service Used With the POST Login Route
+const loginService = require('./services/loginService')
+
+
+
 // create an instance of express
 const app = express()
  
@@ -24,6 +29,10 @@ app.use(cors())
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
+ // Setup Template Engine
+ app.set('view engine', 'ejs')
+ app.set('views', path.join(__dirname, './views'))
+ 
 
 //Middleware Serving Static Pages from client directory
 // second parameter is an configuration object of how we want
@@ -39,14 +48,23 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  // Tell Express that you want to access POST Request body
  // Setup   app.use(express.urlencoded({extended:true}))
 
+ app.get('/login', (req, res)=>{
+   // user template placed inside the views directory
+   // res.render(view, data)   ejs.render(template, {data})
+   res.render('login', {passwordWarning:"", emailWarning:""})
+
+ })
  app.post('/login', (req, res)=>{
+   // if your incomming name value pairs are alot then create an object
     const credentials = {
       email:req.body.email,
       password:req.body.password
     }
-    const isValidUser = loginService(credentials)
+    const isValidUser =  loginService.authenticate(credentials)
     
-   res.sendFile(path.join(__dirname, '../client/dashboard.html'))
+    res.end();
+    
+   //res.sendFile(path.join(__dirname, '../client/dashboard.html'))
  })
 
  
