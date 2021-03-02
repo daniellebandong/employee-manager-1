@@ -10,7 +10,7 @@ const cookSession = require('cookie-session')
 
 // Importing our Login Service Used With the POST Login Route
 const loginService = require('./services/loginService')
-
+const departmentRoutes = require('./routes/departmentRouter')
 
 
 // create an instance of express
@@ -27,7 +27,7 @@ const PORT =  process.env.PORT || 5000
 app.use(cors())
 
 //To get access to the name value pairs send in the message Body of POST Request.
- app.use(express.urlencoded({extended:true}))
+ app.use(express.urlencoded({extended:false}))
  app.use(express.json())
 
  // Session Middleware
@@ -101,21 +101,11 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
   })
     
  
- app.post('/login', (req, res)=>{
-   // POST name value pairs in body request
-   const credentials = {
-     email:req.body.email,
-     password:req.body.password
-    }
-    
-    
-    const isValidUser = loginService.authenticate(credentials)
-   
-    res.end()
  
- })
 
  
+
+ app.use('/api/departments', departmentRoutes())
 
 // Final Middleware 
 // Catch all for any request not handled while express was
