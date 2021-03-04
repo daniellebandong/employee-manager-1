@@ -27,4 +27,4 @@ class Department {
   }
 }
 
-module.exports = DepartmentController;
+module.exports = Department;
