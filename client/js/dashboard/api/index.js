@@ -1,14 +1,15 @@
- 
+//const production = 'https://employee-manager-dashboard.herokuapp.com'
+
 const api = {
-    getAllDepartments: 'http://localhost:5000/api/departments/',
+    getAllDepartments: 'https://employee-manager-dashboard.herokuapp.com/api/departments/',
     getDepartment: (name)=>{
-        return `http://localhost:5000/api/departments/name/${name}`
+        return `https://employee-manager-dashboard.herokuapp.com/api/departments/name/${name}`
     },
     updateEmployee: (id, data)=>{
-        return `http://localhost:5000/api/departments/update/id/${id}` 
+        return `https://employee-manager-dashboard.herokuapp.com/api/departments/update/id/${id}` 
     },
     deleteEmployee: (id)=>{
-        return `http://localhost:5000/api/departments/employee/id/${id}` 
+        return `https://employee-manager-dashboard.herokuapp.com/api/departments/employee/id/${id}` 
     }
 }
 
