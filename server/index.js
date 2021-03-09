@@ -46,7 +46,7 @@ app.use(cors())
 // second parameter is an configuration object of how we want
 // the static file server to run.
  
-app.use(express.static(path.join(__dirname, `../${staticFolder}`), {extensions: ["html", 'htm']})
+app.use(express.static(path.join(__dirname, `../www`), {extensions: ["html", 'htm']})
 );
 
  

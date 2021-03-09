@@ -1,4 +1,5 @@
-//const production = 'https://employee-manager-dashboard.herokuapp.com'
+// productionUrl = 'https://employee-manager-dashboard.herokuapp.com'
+// developmentUrl = 'http://localhost:5000/
 
 const api = {
     getAllDepartments: 'https://employee-manager-dashboard.herokuapp.com/api/departments/',
