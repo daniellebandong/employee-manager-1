@@ -21,8 +21,7 @@ const app = express()
 // we can set configuration variables for the application.
 // never upload to git...
 const PORT =  process.env.PORT || 5000 
-const staticFolder = process.env.NODE_ENV = 'product'? 'www': 'client'
-console.log(staticFolder)
+ 
  
 // Middleware For Cross Origin Resource SHaring
 app.use(cors())
