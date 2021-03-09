@@ -21,7 +21,8 @@ const app = express()
 // we can set configuration variables for the application.
 // never upload to git...
 const PORT =  process.env.PORT || 5000 
-
+const staticFolder = process.env.NODE_ENV = 'product'? 'www': 'client'
+console.log(staticFolder)
  
 // Middleware For Cross Origin Resource SHaring
 app.use(cors())
@@ -45,7 +46,7 @@ app.use(cors())
 // second parameter is an configuration object of how we want
 // the static file server to run.
  
-app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 'htm']})
+app.use(express.static(path.join(__dirname, `../${staticFolder}`), {extensions: ["html", 'htm']})
 );
 
  
@@ -100,10 +101,13 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
        }
   })
     
- 
+ app.get('/users', (req, res)=>{
+     // read using the file service
+     // return as json
+     const date = fileService.readFile('../data/user.json')
+     res.json(data)
+ })
 
-
- 
 
  app.use('/api/departments', departmentRoutes())
 

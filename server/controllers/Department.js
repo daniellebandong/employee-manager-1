@@ -11,7 +11,11 @@ class Department {
   getDepartments() {
     const employees = this.getData();
     // new set hand piece of code to get unique things....
-    return [...new Set(employees.map((employee) => employee.department))];
+   const departments = [...new Set(employees.map((employee) => employee.department))]
+   const formatAsObjects  = departments.map(name=>{
+     return {name} 
+   })
+   return formatAsObjects
   }
 
   getDepartment(searchTerm) {
@@ -22,8 +26,25 @@ class Department {
     return department;
   }
 
+  delteEmployeeById(id){
+       
+       const employees = this.getData();
+
+       const exists = employees.filter(employee=> employee.id !== id)
+       if(exists.length < employees.length){
+         this.writeData(exists )
+       }else{
+         console.log("employee not found")
+       }
+       
+  }
+
   getData() {
     return fileService.getFileContents(this.dataFile);
+  }
+
+  writeData(data){
+    return fileService.writeDataToFile(this.dataFile, data);
   }
 }
 
