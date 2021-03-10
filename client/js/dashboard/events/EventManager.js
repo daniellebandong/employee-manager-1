@@ -19,8 +19,8 @@ const EventManager = (function () {
       };
   
       const onFetchRequest = async (e) => {
-        const result = await dataFetcher(api.getDepartment(e.detail.name));
-         handle.dispatchEvent(new CustomEvent('updateDisplay',{bubbles:true, detail:result}))
+        const result = await dataFetcher.getRequest(api.getDepartment(e.detail.name));
+        handle.dispatchEvent(new CustomEvent('updateDisplay',{bubbles:true, detail:result}))
       };
   
       handle.addEventListener("deleteEmployee", onDeleteEmployee);

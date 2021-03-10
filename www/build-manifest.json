@@ -1,11 +1,11 @@
 {
   "inputs": {
     "css/styles.css": {
-      "bytes": 8487,
+      "bytes": 8604,
       "imports": []
     },
     "js/dashboard/api/index.js": {
-      "bytes": 427,
+      "bytes": 540,
       "imports": []
     },
     "js/utils/dataFetcher.js": {
@@ -13,7 +13,7 @@
       "imports": []
     },
     "js/dashboard/events/EventManager.js": {
-      "bytes": 1326,
+      "bytes": 1336,
       "imports": [
         {
           "path": "js/dashboard/api/index.js",
@@ -144,7 +144,7 @@
       ]
     },
     "js/dashboard/display-panel/index.js": {
-      "bytes": 669,
+      "bytes": 1087,
       "imports": [
         {
           "path": "js/dashboard/widgets/manager/index.js",
@@ -157,7 +157,7 @@
       ]
     },
     "js/dashboard/index.js": {
-      "bytes": 783,
+      "bytes": 859,
       "imports": [
         {
           "path": "js/dashboard/api/index.js",
@@ -188,10 +188,10 @@
       "entryPoint": "css/styles.css",
       "inputs": {
         "css/styles.css": {
-          "bytesInOutput": 6346
+          "bytesInOutput": 6451
         }
       },
-      "bytes": 6347
+      "bytes": 6452
     },
     "../~~bundle~~/js/dashboard/index.js": {
       "imports": [],
@@ -205,7 +205,7 @@
           "bytesInOutput": 163
         },
         "js/dashboard/events/EventManager.js": {
-          "bytesInOutput": 644
+          "bytesInOutput": 655
         },
         "js/dashboard/sidebar/sideBarTemplates.js": {
           "bytesInOutput": 124
@@ -241,13 +241,13 @@
           "bytesInOutput": 651
         },
         "js/dashboard/display-panel/index.js": {
-          "bytesInOutput": 145
+          "bytesInOutput": 337
         },
         "js/dashboard/index.js": {
-          "bytesInOutput": 263
+          "bytesInOutput": 297
         }
       },
-      "bytes": 17569
+      "bytes": 17806
     }
   }
 }

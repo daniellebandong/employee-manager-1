@@ -8,20 +8,29 @@ import employeeView from "../widgets/employee"
 // create a header obj as well of the name display.
 
 const DisplayPanel = () => {
-
   const view = document.querySelector("#panel");
- 
+  const viewHeading = document.querySelector('#widget-heading')
+  let managers = null;
+  let employees = null;
+
  
   
 
   const init = (data) => {
-       view.appendChild(managerView(data))
-       view.appendChild(employeeView(data))
+    viewHeading.textContent = `${data[0].department} department`
+    managers =  view.appendChild(managerView(data))
+    employees = view.appendChild(employeeView(data))
   };
 
   const updateDisplay = (data) => {
-    // tair down
-    // rebuild
+     const managersDisplay = document.querySelector('.managers')
+  
+    //  const display = document.querySelector('.employees')
+    //  document.removeChild(managersDisplay)
+    view.removeChild(managers)
+    view.removeChild(employees)
+    init(data)
+    
   };
 
   return { updateDisplay, view, init };
