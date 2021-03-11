@@ -10,7 +10,9 @@ import employeeView from "../widgets/employee"
 const DisplayPanel = () => {
   const view = document.querySelector("#panel");
   // display panel Snippet #2
-
+  const viewHeading = document.querySelector('#widget-heading')
+  let managers = null;
+  let employees = null;
  
   
 
@@ -22,6 +24,9 @@ const DisplayPanel = () => {
 
   const updateDisplay = (data) => {
     // display panel Snippet #3
+    view.removeChild(managers)
+    view.removeChild(employees)
+    init(data)
   };
 
   return { updateDisplay, view, init };
