@@ -1,68 +1,14 @@
-# Employee Manager Day 9
+# Employee Manager Day 10
 
-Over the next two days we will finish off the employee manager and add the edit and delete functionality to manage a group of employees from a single department.
+__Install__
+To start install the project node_modules by running ```npm install```
 
-```
-client/js
-    │ 
-    ├── dashboard
-    │   ├── api  
-    │   ├── control-strip
-    │   ├── events
-    │   ├── keypoints
-    │   ├── panel
-    │   ├── sidebar
-    │   └── widgets
-    │ 
-    │ 
-    ├── utils
-    └── index.js
-```
+__Development__
+First start the server so the client can access the api ```npm run server```.  Make sure your are in the employee-manager directory when you run this command. To view any edits you make run ```snowpack dev``` from the employee-manager root folder. The project should run on localhost:3000
 
-### DashBoard
+__Production__
+When your read to deploy to Netlify you first must build a deployment build of the client site. To do this run ```snowpack build```. This will create a new folder called www inside the employee manager folder. This folder contains the optimized production bundle. Once you have this folder created commit your changes to git and visit your Heroku app an test your project. 
 
-__api folder:__  
-Index.js exports an object with methods to create url's for each route required in the dashboard sidebar and panel display.  
-```
-api
-└── index.js
-```
+__Data Reset__
+There is an api route /api/departments/reset that will copy the original data back to the employee.json file. You can run this command locally from the browser by running ```http://localhost:5000/api/departments/reset```
 
-__control-strip:__  
-Containes the templates and code base for the dashboard control strip. For the sake of time the control strip was added directly to the dashboard.ejs template found in the server/views/dashboard.ejs
-
-__events:__  
-The EventManager is a singleton instance that is used as a message bus between the sidbar and the panel display. It handles the API requests using the dataFetcher and return responses to subscribed view.  
-```events
-└── EventManager.js
-```
-
-__keypoints:__  
-Containes the templates and code for the kep points displayed from a given display panel. This will be completed as a bonus task. 
-```keypoints
-└── index.js
-```
-
-__panel:__  
-Containes the templates and code for any widget required in a panel.  
-
-__sidebar:__  
-Containes the templates and code for the the sidebar builds.  
-
-__widgets:__  
-Containes the templates and code for any widget required in a panel.   
-
- 
-
-
-
- 
-
- 
-
-
- 
-
-
- 
-  
