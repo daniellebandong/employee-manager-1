@@ -6,8 +6,8 @@ const api = {
     getDepartment: (name)=>{
         return `http://localhost:5000/api/departments/name/${name}`
     },
-    updateEmployee: (id, data)=>{
-        return `http://localhost:5000/api/departments/update/id/${id}` 
+    updateEmployee: (id)=>{
+        return `http://localhost:5000/api/departments/employee/update` 
     },
     deleteEmployee: (id)=>{
         return `http://localhost:5000/api/departments/employee/id/${id}` 

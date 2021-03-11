@@ -29,6 +29,7 @@ app.use(cors())
 //To get access to the name value pairs send in the message Body of POST Request.
  app.use(express.urlencoded({extended:false}))
  app.use(express.json())
+ app.use(express.raw())
 
  // Session Middleware
  app.use(cookSession({

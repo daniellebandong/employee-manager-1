@@ -14,6 +14,25 @@ const deleteRequest = async (url)=>{
        return result
 }
 
-const dataFetcher = {getRequest, deleteRequest}
+const putRequest = async(url,data)=>{
+
+   const requestHeader = new Headers();
+   requestHeader.append("Content-Type", "application/json");
+   const employeeData = JSON.stringify(data);
+ 
+   const requestObject = {
+     method: 'PUT',
+     headers: requestHeader,
+     body: employeeData,
+     redirect: 'follow'
+   };
+   
+     const req = await fetch(url, requestObject)
+     const result = await req.text()
+     console.log(result)
+
+}
+
+const dataFetcher = {getRequest, deleteRequest, putRequest}
 
 export default dataFetcher

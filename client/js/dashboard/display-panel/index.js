@@ -24,13 +24,9 @@ const DisplayPanel = () => {
 
   const updateDisplay = (data) => {
      const managersDisplay = document.querySelector('.managers')
-  
-    //  const display = document.querySelector('.employees')
-    //  document.removeChild(managersDisplay)
-    view.removeChild(managers)
-    view.removeChild(employees)
-    init(data)
-    
+     view.removeChild(managers)
+     view.removeChild(employees)
+     init(data)
   };
 
   return { updateDisplay, view, init };

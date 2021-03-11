@@ -5,15 +5,15 @@
       "imports": []
     },
     "js/dashboard/api/index.js": {
-      "bytes": 540,
+      "bytes": 534,
       "imports": []
     },
     "js/utils/dataFetcher.js": {
-      "bytes": 434,
+      "bytes": 884,
       "imports": []
     },
     "js/dashboard/events/EventManager.js": {
-      "bytes": 1336,
+      "bytes": 1417,
       "imports": [
         {
           "path": "js/dashboard/api/index.js",
@@ -119,11 +119,11 @@
       ]
     },
     "js/dashboard/widgets/employee/employeeTemplates.js": {
-      "bytes": 959,
+      "bytes": 958,
       "imports": []
     },
     "js/dashboard/widgets/employee/index.js": {
-      "bytes": 1443,
+      "bytes": 1727,
       "imports": [
         {
           "path": "js/utils/renderTemplate.js",
@@ -144,7 +144,7 @@
       ]
     },
     "js/dashboard/display-panel/index.js": {
-      "bytes": 1087,
+      "bytes": 975,
       "imports": [
         {
           "path": "js/dashboard/widgets/manager/index.js",
@@ -157,7 +157,7 @@
       ]
     },
     "js/dashboard/index.js": {
-      "bytes": 859,
+      "bytes": 784,
       "imports": [
         {
           "path": "js/dashboard/api/index.js",
@@ -199,13 +199,13 @@
       "entryPoint": "js/dashboard/index.js",
       "inputs": {
         "js/dashboard/api/index.js": {
-          "bytesInOutput": 292
+          "bytesInOutput": 289
         },
         "js/utils/dataFetcher.js": {
-          "bytesInOutput": 163
+          "bytesInOutput": 376
         },
         "js/dashboard/events/EventManager.js": {
-          "bytesInOutput": 655
+          "bytesInOutput": 695
         },
         "js/dashboard/sidebar/sideBarTemplates.js": {
           "bytesInOutput": 124
@@ -217,7 +217,7 @@
           "bytesInOutput": 36
         },
         "_snowpack/pkg/ejs.js": {
-          "bytesInOutput": 12952
+          "bytesInOutput": 12949
         },
         "js/utils/renderTemplate.js": {
           "bytesInOutput": 55
@@ -235,19 +235,19 @@
           "bytesInOutput": 180
         },
         "js/dashboard/widgets/employee/employeeTemplates.js": {
-          "bytesInOutput": 856
+          "bytesInOutput": 855
         },
         "js/dashboard/widgets/employee/index.js": {
-          "bytesInOutput": 651
+          "bytesInOutput": 861
         },
         "js/dashboard/display-panel/index.js": {
           "bytesInOutput": 337
         },
         "js/dashboard/index.js": {
-          "bytesInOutput": 297
+          "bytesInOutput": 263
         }
       },
-      "bytes": 17806
+      "bytes": 18228
     }
   }
 }

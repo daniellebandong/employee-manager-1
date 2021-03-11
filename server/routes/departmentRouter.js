@@ -4,7 +4,7 @@ const Department = require('../controllers/Department');
 
 // Router   handle req/res http verbs
 const router = express.Router();
-const department = new Department('../data/data.json')
+const department = new Department('../data/employees.json')
 
 
 //commonjs modules 
@@ -14,18 +14,25 @@ module.exports = ()=>{
         res.send(department.getDepartments())
     })
 
-    // Single Department 
-    // GET Request (body)  
-    // query- query string  url?name=value&name=value
-    // params - params   url/name/value/name/value
+    // Single Department By Name
     router.get('/name/:name', (req, res)=>{  
         res.send(department.getDepartment(req.params.name))
     })
 
+    // Remove An Employee From A Department
     router.delete('/employee/id/:id', (req, res)=>{
         department.delteEmployeeById(req.params.id)
-        
         res.send({"id":req.params.id});
+    })
+
+    router.put('/employee/update', (req, res) =>{
+           department.updateEmployeeData(req.body)
+        res.send("success you made it this far");
+    })
+
+    router.get('/reset', (req, res)=>{
+        department.resetDepartmentData()
+        res.send('reset the employee data')
     })
 
     return router

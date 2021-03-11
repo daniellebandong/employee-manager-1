@@ -19,7 +19,7 @@ const employeeTemplate = `
  
 <li class="lastname"> 
 <label> lastname </label>
-<input id="lasttname" type="text" value="<%-data.lastname%>">
+<input id="lastname" type="text" value="<%-data.lastname%>">
 </li>
  
 

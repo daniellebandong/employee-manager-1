@@ -14,8 +14,10 @@ const EventManager = (function () {
         handle.dispatchEvent(new CustomEvent('removeItem',{bubbles:true, detail:result}))
       };
   
-      const onEditEmployee = () => {
-        console.log("Turn On Edit Mode For Employee");
+      const onEditEmployee = async(e) => {
+         const result = await dataFetcher.putRequest(api.updateEmployee(e.detail.payload.id), e.detail.payload)
+         
+       
       };
   
       const onFetchRequest = async (e) => {

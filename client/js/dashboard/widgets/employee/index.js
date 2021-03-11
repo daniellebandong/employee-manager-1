@@ -19,11 +19,20 @@ const employee = function (data){
       employeeContainer.removeChild(e.currentTarget.parentElement)
       break;
       case "edit": 
-      eventManager.handle.dispatchEvent(new CustomEvent('editEmployee', {bubbles:true, detail:{id:e.currentTarget.dataset.id}} ));
+      // package up the data
+    const payload = {
+       id:e.currentTarget.dataset.id,
+       firstname:e.currentTarget.parentElement.querySelector('#firstname').value.trim(),
+       lastname:e.currentTarget.parentElement.querySelector('#lastname').value.trim(),
+       salary:e.currentTarget.parentElement.querySelector('#salary').value.trim(),
+       vacation:e.currentTarget.parentElement.querySelector('#vacation').value.trim(),
+    }
+   
+      eventManager.handle.dispatchEvent(new CustomEvent('editEmployee', 
+      {bubbles:true, 
+        detail:{  payload}
+      } ));
       break;
-      case "save":
-      eventManager.handle.dispatchEvent(new CustomEvent('saveEmployee', {bubbles:true, detail:{id:e.currentTarget.dataset.id}} ));
-      break;;
     }
 
    }
