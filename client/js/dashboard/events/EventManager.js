@@ -15,9 +15,8 @@ const EventManager = (function () {
       };
   
       const onEditEmployee = async(e) => {
-         const result = await dataFetcher.putRequest(api.updateEmployee(e.detail.payload.id), e.detail.payload)
-         
-       
+        // Snippet #4 create the url using the api module and call the dataFetcher edit employee funciton
+        const result = await dataFetcher.putRequest(api.updateEmployee(e.detail.payload.id), e.detail.payload)
       };
   
       const onFetchRequest = async (e) => {
@@ -26,7 +25,7 @@ const EventManager = (function () {
       };
   
       handle.addEventListener("deleteEmployee", onDeleteEmployee);
-      handle.addEventListener("editEmployee",  onEditEmployee);
+      // Snippet #3
       handle.addEventListener("sideBarSelect",  onFetchRequest);
   
       return {

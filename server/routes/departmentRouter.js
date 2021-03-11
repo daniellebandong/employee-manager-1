@@ -26,8 +26,8 @@ module.exports = ()=>{
     })
 
     router.put('/employee/update', (req, res) =>{
-           department.updateEmployeeData(req.body)
-        res.send("success you made it this far");
+        department.updateEmployeeData(req.body)
+        res.send("update employee data");
     })
 
     router.get('/reset', (req, res)=>{

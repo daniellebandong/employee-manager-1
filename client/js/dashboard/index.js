@@ -4,7 +4,7 @@ import EventManager from './events/EventManager'
 import SideBar from './sidebar';
 import DisplayPanel from './display-panel'
 
-const store = []
+ 
 const displayPanel = DisplayPanel();
 const sideBar = SideBar()
 const eventManager = EventManager.getInstance();
@@ -13,7 +13,7 @@ const eventManager = EventManager.getInstance();
 
 
 eventManager.handle.addEventListener('updateDisplay', (e)=>{
-  displayPanel.updateDisplay(e.detail); 
+    // update display Snippet #1
 })
 
 

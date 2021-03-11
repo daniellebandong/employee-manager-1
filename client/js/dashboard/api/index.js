@@ -3,11 +3,9 @@
 
 const api = {
     getAllDepartments: 'http://localhost:5000/api/departments/',
+    // Snippet #5
     getDepartment: (name)=>{
         return `http://localhost:5000/api/departments/name/${name}`
-    },
-    updateEmployee: (id)=>{
-        return `http://localhost:5000/api/departments/employee/update` 
     },
     deleteEmployee: (id)=>{
         return `http://localhost:5000/api/departments/employee/id/${id}` 
