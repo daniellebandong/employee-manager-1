@@ -157,7 +157,7 @@
       ]
     },
     "js/dashboard/index.js": {
-      "bytes": 812,
+      "bytes": 806,
       "imports": [
         {
           "path": "js/dashboard/api/index.js",
@@ -244,10 +244,10 @@
           "bytesInOutput": 295
         },
         "js/dashboard/index.js": {
-          "bytesInOutput": 256
+          "bytesInOutput": 278
         }
       },
-      "bytes": 18212
+      "bytes": 18234
     }
   }
 }

@@ -24,8 +24,8 @@ const appInit = async function (){
        const departmentData = await dataFetcher.getRequest(api.getAllDepartments)
        const defaultWidgitData = await dataFetcher.getRequest(api.getDepartment("training"))
        console.log(departmentData)
-      //  sideBar.init(departmentData)
-      //  displayPanel.init(defaultWidgitData)
+       sideBar.init(departmentData)
+       displayPanel.init(defaultWidgitData)
 }
 
 appInit()
